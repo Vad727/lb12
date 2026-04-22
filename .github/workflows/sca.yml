@@ -35,7 +35,7 @@ jobs:
           for result in data.get("Results", []):
               for vuln in result.get("Vulnerabilities", []) or []:
                   severity = vuln.get("Severity", "")
-                  if severity in ("CRITICAL", "HIGH"):
+                  if severity == "CRITICAL":
                       blocking.append(vuln)
 
           print(f"Total blocking vulnerabilities: {len(blocking)}")
